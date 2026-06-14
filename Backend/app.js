@@ -6,14 +6,19 @@ const bcrypt = require("bcrypt");
 require("dotenv").config();
 
 const app = express();
-const allowedOrigins = [
-  process.env.FRONTEND_URL,
-  "http://localhost:3000",
-].filter(Boolean);
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    // Allow requests with no origin (mobile apps, curl, Postman)
+    // Allow localhost and all onrender.com subdomains
+    if (
+      !origin ||
+      origin.includes("localhost") ||
+      origin.includes("onrender.com") ||
+      origin === process.env.FRONTEND_URL
+    ) {
+      return callback(null, true);
+    }
     callback(new Error("Not allowed by CORS"));
   },
   credentials: true,
