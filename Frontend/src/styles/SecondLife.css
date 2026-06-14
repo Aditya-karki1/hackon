@@ -1,0 +1,1027 @@
+/* ── Second Life Marketplace ────────────────────────────────── */
+.slPage {
+  min-height: 100vh;
+  background: #f0f2f5;
+  padding-bottom: 60px;
+  font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+/* Header */
+.slHeader {
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+  color: #fff;
+  padding: 32px 48px 28px;
+}
+
+.slHeaderContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.slBackLink {
+  text-decoration: none;
+  color: #6ee7b7;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: opacity 0.2s;
+}
+
+.slBackLink:hover {
+  opacity: 0.8;
+}
+
+.slHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.slTitle {
+  margin: 0 0 6px;
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.slSubtitle {
+  margin: 0;
+  font-size: 15px;
+  color: #a7f3d0;
+  max-width: 600px;
+}
+
+.slSellBtn {
+  background: #ff9900;
+  color: #131921;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.slSellBtn:hover {
+  background: #e68900;
+}
+
+/* Trust badges row */
+.slTrustRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.slTrustBadge {
+  background: rgba(255, 255, 255, 0.12);
+  color: #d1fae5;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Filter bar */
+.slFilterBar {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.slFilterLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.slFilterBtn {
+  padding: 7px 18px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 20px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.slFilterBtn:hover {
+  border-color: #059669;
+  color: #059669;
+}
+
+.slFilterBtn--active {
+  background: #059669;
+  color: #fff;
+  border-color: #059669;
+}
+
+/* Content area */
+.slContent {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 0 24px;
+}
+
+/* Loading */
+.slLoading {
+  text-align: center;
+  padding: 80px 20px;
+  color: #6b7280;
+}
+
+.slSpinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #059669;
+  border-radius: 50%;
+  animation: slSpin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes slSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Empty state */
+.slEmpty {
+  text-align: center;
+  padding: 80px 20px;
+  color: #6b7280;
+}
+
+.slEmptyIcon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+/* Grid */
+.slGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.slCard {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.slCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.slCard--sold {
+  opacity: 0.6;
+}
+
+/* Card image */
+.slCardImgWrap {
+  position: relative;
+  background: #f9fafb;
+  height: 200px;
+  overflow: hidden;
+}
+
+.slCardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 16px;
+}
+
+/* Grade badge (floating on image) */
+.slGradeBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* P2P badge */
+.slP2PBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #7c3aed;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+/* Sold overlay */
+.slSoldOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* Card body */
+.slCardBody {
+  padding: 16px 18px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slCardBrand {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.slCardName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.3;
+}
+
+/* Pricing */
+.slPriceRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.slOriginalPrice {
+  font-size: 13px;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.slArrow {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.slSalePrice {
+  font-size: 20px;
+  font-weight: 800;
+  color: #131921;
+}
+
+.slDiscount {
+  background: #dcfce7;
+  color: #166534;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Condition bar */
+.slConditionBar {
+  margin: 2px 0;
+}
+
+.slConditionLabel {
+  font-size: 11px;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.slConditionTrack {
+  height: 5px;
+  background: #e5e7eb;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.slConditionFill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.8s ease;
+}
+
+/* Info chips */
+.slInfoRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.slInfoChip {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.slInfoChip--green {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.slInfoChip--blue {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.slInfoChip--credits {
+  background: #064e3b;
+  color: #6ee7b7;
+  font-weight: 700;
+}
+
+/* Trust line */
+.slTrustLine {
+  margin-top: 2px;
+}
+
+.slVerifiedBadge {
+  font-size: 11px;
+  color: #059669;
+  font-weight: 600;
+}
+
+.slSellerLine {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* Buy button */
+.slBuyBtn {
+  margin-top: auto;
+  padding: 11px;
+  background: #ff9900;
+  color: #131921;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  width: 100%;
+}
+
+.slBuyBtn:hover:not(:disabled) {
+  background: #e68900;
+}
+
+.slBuyBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.slBuyBtn--sold {
+  background: #e5e7eb;
+  color: #9ca3af;
+}
+
+.slBoughtMsg {
+  font-size: 12px;
+  color: #059669;
+  font-weight: 600;
+  text-align: center;
+  background: #dcfce7;
+  padding: 6px 10px;
+  border-radius: 6px;
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CTA Banner */
+.slCtaBanner {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0 24px;
+}
+
+.slCtaContent {
+  background: linear-gradient(135deg, #131921 0%, #232f3e 100%);
+  border-radius: 16px;
+  padding: 36px 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.slCtaContent h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.slCtaContent p {
+  color: #9ca3af;
+  font-size: 15px;
+  margin: 0 0 20px;
+}
+
+.slCtaBtn {
+  display: inline-block;
+  background: #ff9900;
+  color: #131921;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.slCtaBtn:hover {
+  background: #e68900;
+}
+
+/* ── Tab bar ──────────────────────────────────────────────── */
+.slTabBar {
+  background: #fff;
+  border-bottom: 2px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.slTabs {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 4px;
+}
+
+.slTab {
+  padding: 14px 20px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slTab:hover {
+  color: #059669;
+}
+
+.slTab--active {
+  color: #059669;
+  border-bottom-color: #059669;
+}
+
+.slTabCount {
+  background: #e5e7eb;
+  color: #374151;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.slTab--active .slTabCount {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* ── Seller spotlight ─────────────────────────────────────── */
+.slSpotlightWrap {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  padding: 0 24px;
+}
+
+.slSpotlightLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 12px;
+}
+
+.slSpotlightRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.slSpotlightCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px 18px;
+  min-width: 180px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.slSpotlightCard:hover {
+  border-color: #7c3aed;
+  box-shadow: 0 4px 14px rgba(124,58,237,0.1);
+}
+
+.slSpotlightInfo { display: flex; flex-direction: column; gap: 3px; }
+
+.slSpotlightName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.slSpotlightMeta {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ── Seller avatar ────────────────────────────────────────── */
+.slSellerAvatar {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ── P2P card variant ─────────────────────────────────────── */
+.slCard--p2p {
+  border: 2px solid #ede9fe;
+}
+
+.slCard--p2p:hover {
+  border-color: #7c3aed;
+  box-shadow: 0 8px 32px rgba(124,58,237,0.12);
+}
+
+/* ── Seller strip on card ─────────────────────────────────── */
+.slSellerStrip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #faf5ff;
+  border: 1px solid #ede9fe;
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.slSellerStripInfo { flex: 1; min-width: 0; }
+
+.slSellerStripName {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slSellerStripLoc {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.slSellerVerified {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* Amazon verified strip */
+.slVerifiedStrip {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 7px 10px;
+  font-size: 12px;
+  color: #166534;
+  font-weight: 600;
+}
+
+/* ── Purchase Modal ───────────────────────────────────────── */
+.slModalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.slModal {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.slModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.slModalTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+}
+
+.slModalClose {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.slModalClose:hover { background: #f3f4f6; }
+
+.slModalSellerRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #faf5ff;
+  border: 1.5px solid #ede9fe;
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.slModalSellerName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 3px;
+}
+
+.slModalSellerLoc {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.slModalProductRow {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.slModalImg {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.slModalBrand {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.slModalProductName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.slModalPriceRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.slModalOrig {
+  font-size: 12px;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.slModalArrow { color: #6b7280; font-size: 12px; }
+
+.slModalSale {
+  font-size: 20px;
+  font-weight: 800;
+  color: #131921;
+}
+
+.slModalCreditsNote {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #166534;
+}
+
+.slModalActions {
+  display: flex;
+  gap: 10px;
+}
+
+.slModalCancel {
+  flex: 1;
+  padding: 12px;
+  background: #f3f4f6;
+  color: #374151;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.slModalCancel:hover { background: #e5e7eb; }
+
+.slModalConfirm {
+  flex: 2;
+  padding: 12px;
+  background: #ff9900;
+  color: #131921;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.slModalConfirm:hover:not(:disabled) { background: #e68900; }
+.slModalConfirm:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Success Toast ────────────────────────────────────────── */
+.slToast {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  background: #131921;
+  color: #fff;
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  z-index: 1001;
+  max-width: 340px;
+  animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.slToastIcon { font-size: 22px; flex-shrink: 0; }
+
+.slToastTitle {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.slToastSub {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.slToastClose {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.slToastClose:hover { color: #fff; }
+
+.slToast--wide { max-width: 420px; }
+
+.slToastBreakdown {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin: 5px 0 3px;
+}
+
+.slToastBreakdown span {
+  font-size: 11px;
+  color: #fcd34d;
+  font-weight: 600;
+  background: rgba(252, 211, 77, 0.1);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media only screen and (max-width: 900px) {
+  .slHeader {
+    padding: 24px 20px 20px;
+  }
+  .slTitle {
+    font-size: 24px;
+  }
+  .slFilterBar,
+  .slContent,
+  .slCtaBanner {
+    padding: 0 12px;
+  }
+  .slFilterBar {
+    margin-top: 16px;
+  }
+  .slContent {
+    margin-top: 16px;
+  }
+  .slGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+  }
+  .slCtaContent {
+    padding: 24px 20px;
+  }
+}
+
+/* ── Geo / Map section ──────────────────────────────────────── */
+.slMapSection {
+  max-width: 1200px;
+  margin: 0 auto 0;
+  padding: 0 48px 28px;
+}
+
+.slMapHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.slMapTitle {
+  font-size: 17px;
+  font-weight: 800;
+  color: #131921;
+}
+
+.slMapSubtitle {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.slMapContainer {
+  width: 100%;
+  height: 360px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+/* Distance badge floating on card image */
+.slDistanceBadge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.2px;
+}
+
+.slIHSBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #064e3b;
+  color: #6ee7b7;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+.slDaysLeftBadge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(5, 150, 105, 0.88);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.slDaysLeftBadge--urgent {
+  background: rgba(220, 38, 38, 0.88);
+}
+
+@media (max-width: 600px) {
+  .slMapSection {
+    padding: 0 12px 20px;
+  }
+  .slMapContainer {
+    height: 260px;
+  }
+}
+
+/* Sort bar */
+.slSortBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto 4px;
+  padding: 0 24px;
+}
+
+.slHideSoldBtn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid #d1d5db;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #374151;
+  transition: all 0.2s;
+}
+.slHideSoldBtn--active {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #166534;
+}
+.slHideSoldBtn:hover { background: #f3f4f6; }
+.slHideSoldBtn--active:hover { background: #bbf7d0; }

@@ -1,0 +1,401 @@
+.navbar {
+  /* position: sticky;
+  top: 0;
+  z-index: 100; */
+  display: flex;
+  align-items: center;
+  background-color: #131921;
+  color: #fff;
+  height: 64px;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-weight: 500;
+  font-size: 18px;
+  border-bottom: #6e6e6e 0.5px solid;
+}
+
+.navbarSmallScreen {
+  display: none;
+}
+
+.navbarSearchBarSmallScreen {
+  display: none;
+}
+
+.navbarLeft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 36px;
+}
+
+.navbarRight {
+  display: flex;
+}
+
+.navbarLocation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.navbarSearchBar {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-grow: 1;
+  height: 42px;
+}
+
+.navbarSearch {
+  font-family: emberRegular;
+  flex-grow: 1;
+  background-color: #f2f3f5;
+  border: none;
+  padding: 12px;
+  padding-left: 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.navbarLogo {
+  width: 100px;
+  padding-top: 8px;
+}
+
+.navbarTopLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.cartLink {
+  text-decoration: none;
+  color: white;
+  z-index: 2;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartLink:hover {
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+  color: #ff9900;
+}
+
+.navbarBottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #131921;
+  color: #fff;
+  height: 32px;
+  padding: 8px;
+  padding-left: 40px;
+  padding-right: 40px;
+  position: relative;
+}
+
+.navbarBottomLinks {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.navbarBottomLinks li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+.navbarBottomLinks li:hover {
+  cursor: pointer;
+  transition: ease-in-out 0.4s;
+  color: #ff9900;
+  font-weight: 500;
+}
+.navbarBottomLinks li a:hover {
+  cursor: pointer;
+  transition: ease-in-out 0.4s;
+  color: #ff9900;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 1250px) {
+  .navbar {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  .navbarBottom {
+    overflow: scroll;
+    overflow-y: hidden;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .navbar {
+    display: none;
+  }
+
+  .navbarBottom {
+    display: flex;
+    align-items: center;
+    background-color: #232f3e;
+    padding: 0 12px;
+    height: 40px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .navbarBottom::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navbarBottomLinks {
+    display: flex;
+    gap: 20px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 13px;
+  }
+
+  .navbarBottomLinks li a {
+    color: #fff;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .navbarSmallScreen {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #232f3e;
+    color: #fff;
+    height: 54px;
+    font-weight: 500;
+    font-size: 16px;
+    /* border-bottom: #6e6e6e 0.5px solid; */
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .navbarTopLinksSmallScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    list-style: none;
+  }
+
+  .navbarTopLinksSmallScreen>li>img {
+    width: 34px;
+  }
+
+  .navbarLeftSmallScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+  }
+
+  .navbarLogoSmallScreen {
+    padding-top: 10px;
+    width: 94%;
+    position: absolute;
+    text-align: center;
+  }
+
+  .navbarLogoSmallScreen img {
+    width: 84px;
+  }
+
+  .navbarSearchBarSmallScreen {
+    display: flex;
+    align-items: center;
+    background-color: #232f3e;
+    padding: 8px 12px;
+    gap: 0;
+  }
+
+  .navbarSearchSmallScreen {
+    font-family: emberRegular;
+    flex-grow: 1;
+    background-color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 38px;
+    box-sizing: border-box;
+  }
+}
+
+/* Cart badge */
+.navCartBadge {
+  position: absolute;
+  top: -7px;
+  right: -9px;
+  background: #ff9900;
+  color: #131921;
+  font-size: 10px;
+  font-weight: 800;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  pointer-events: none;
+}
+
+/* Active nav link */
+.navLinkActive {
+  color: #ff9900 !important;
+  font-weight: 700;
+}
+
+/* Green Credits chip */
+.greenCreditsChip {
+  background: rgba(6, 78, 59, 0.7) !important;
+  color: #6ee7b7 !important;
+  padding: 4px 10px !important;
+  border-radius: 20px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  border: 1px solid rgba(110, 231, 183, 0.3) !important;
+  transition: background 0.2s !important;
+}
+
+.greenCreditsChip:hover {
+  background: rgba(6, 78, 59, 0.9) !important;
+}
+
+.greenCreditsChip--zero {
+  opacity: 0.55;
+}
+
+/* ── Warehouse staff navbar ──────────────────────────────── */
+.warehouseNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #131921;
+  padding: 10px 32px;
+  border-bottom: 3px solid #ff9900;
+}
+
+.warehouseNavLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.warehouseNavLogoImg {
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
+.warehouseNavLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ff9900;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border: 1px solid #ff9900;
+  border-radius: 6px;
+}
+
+.warehouseNavRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.warehouseNavLink {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.warehouseNavLink:hover { color: #ff9900; }
+
+.warehouseNavUser {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.warehouseNavLogout {
+  background: none;
+  border: 1px solid #4b5563;
+  color: #9ca3af;
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.warehouseNavLogout:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+@media only screen and (max-width: 760px) {
+  .warehouseNav {
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .warehouseNavRight {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .warehouseNavUser {
+    display: none;
+  }
+
+  .warehouseNavLabel {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .warehouseNav {
+    padding: 8px 12px;
+  }
+
+  .warehouseNavLogoImg {
+    height: 22px;
+  }
+
+  .warehouseNavLink {
+    font-size: 13px;
+  }
+
+  .warehouseNavLogout {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+}

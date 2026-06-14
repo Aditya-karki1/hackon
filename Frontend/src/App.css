@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: "Montserrat" */
+  font-family: emberRegular, sans-serif;
+  background-color: #f5f5fa;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: emberRegular;
+  src: url(./Fonts/AmazonEmber_Rg.ttf);
+}
+
+@font-face {
+  font-family: emberHelabold;
+  src: url(./Fonts/AmazonEmber_He.ttf);
+}
+
+@font-face {
+  font-family: emberbold;
+  src: url(./Fonts/AmazonEmber_Bd.ttf);
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+}
+
+@media only screen and (max-width: 900px) {
+  .loader img {
+    display: flex;
+    justify-content: center;
+    height: 40svh;
+  }
+}

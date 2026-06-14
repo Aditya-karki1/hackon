@@ -1,0 +1,619 @@
+/* ── Sell on Second Life ────────────────────────────────────── */
+
+/* Return-redirect banner */
+.sellReturnBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #f0fdf4;
+  border: 1.5px solid #86efac;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #166534;
+  margin-bottom: 20px;
+}
+.sellReturnBannerIcon { font-size: 22px; flex-shrink: 0; }
+
+.sellReturnedTag {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sellPage {
+  min-height: 100vh;
+  background: #f0f2f5;
+  padding-bottom: 60px;
+  font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+/* Header */
+.sellHeader {
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+  color: #fff;
+  padding: 32px 48px 28px;
+}
+
+.sellBackLink {
+  text-decoration: none;
+  color: #6ee7b7;
+  font-size: 14px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.sellBackLink:hover {
+  opacity: 0.8;
+}
+
+.sellTitle {
+  margin: 12px 0 6px;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.sellSubtitle {
+  margin: 0;
+  font-size: 15px;
+  color: #a7f3d0;
+  max-width: 600px;
+}
+
+.sellTrustRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.sellTrustBadge {
+  background: rgba(255, 255, 255, 0.12);
+  color: #d1fae5;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Content */
+.sellContent {
+  max-width: 900px;
+  margin: 32px auto 0;
+  padding: 0 24px;
+}
+
+/* Loading */
+.sellLoading {
+  text-align: center;
+  padding: 80px 20px;
+  color: #6b7280;
+}
+
+.sellSpinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #059669;
+  border-radius: 50%;
+  animation: sellSpin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes sellSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Empty */
+.sellEmpty {
+  text-align: center;
+  padding: 80px 20px;
+  color: #6b7280;
+}
+
+.sellEmptyIcon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.sellEmpty p {
+  font-size: 16px;
+  margin: 0 0 20px;
+}
+
+.sellShopBtn {
+  display: inline-block;
+  background: #ff9900;
+  color: #131921;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.sellShopBtn:hover {
+  background: #e68900;
+}
+
+/* Items list */
+.sellItemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Item card */
+.sellCard {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  padding: 22px;
+  display: flex;
+  gap: 20px;
+  border: 1.5px solid #e5e7eb;
+  transition: border-color 0.2s;
+}
+
+.sellCard:hover {
+  border-color: #059669;
+}
+
+.sellCard--listed {
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+/* Card left (image) */
+.sellCardLeft {
+  flex-shrink: 0;
+}
+
+.sellCardImg {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 6px;
+}
+
+/* Card right */
+.sellCardRight {
+  flex: 1;
+  min-width: 0;
+}
+
+.sellCardBrand {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 3px;
+}
+
+.sellCardName {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.sellCardMeta {
+  font-size: 13px;
+  color: #6b7280;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.separator {
+  color: #d1d5db;
+}
+
+/* Form inputs */
+.sellFormRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.sellSelect,
+.sellInput {
+  padding: 9px 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #374151;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+  flex: 1;
+  min-width: 180px;
+}
+
+.sellSelect:focus,
+.sellInput:focus {
+  border-color: #059669;
+}
+
+/* Upload block */
+.sellUploadBlock {
+  margin-bottom: 12px;
+}
+
+.sellUploadTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sellUploadArea {
+  border: 2px dashed #d1d5db;
+  border-radius: 10px;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: #f9fafb;
+  overflow: hidden;
+}
+
+.sellUploadArea:hover {
+  border-color: #059669;
+  background: #f0fdf4;
+}
+
+.sellUploadPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #9ca3af;
+  font-size: 13px;
+  text-align: center;
+  padding: 16px;
+}
+
+.sellUploadIcon {
+  font-size: 28px;
+}
+
+.sellUploadHint {
+  font-size: 11px;
+  color: #d1d5db;
+}
+
+.sellUploadPreview {
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* Grade button */
+.sellGradeBtn {
+  width: 100%;
+  padding: 11px;
+  background: linear-gradient(135deg, #059669, #047857);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  letter-spacing: 0.3px;
+  margin-bottom: 12px;
+}
+
+.sellGradeBtn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.sellGradeBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Grade loader dots */
+.sellGradeLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.sellDot {
+  width: 7px;
+  height: 7px;
+  background: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  animation: sellBounce 1.2s ease-in-out infinite;
+}
+
+.sellDot:nth-child(2) { animation-delay: 0.2s; }
+.sellDot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes sellBounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* Grading overlay / scanner */
+.sellGradingOverlay {
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.sellScanWrap {
+  position: relative;
+  display: inline-block;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 140px;
+  width: 100%;
+}
+
+.sellScanImg {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: brightness(0.8);
+}
+
+.sellScanBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #059669, transparent);
+  animation: sellScan 1.5s ease-in-out infinite;
+  box-shadow: 0 0 10px #059669;
+}
+
+@keyframes sellScan {
+  0% { top: 0; }
+  50% { top: 100%; }
+  100% { top: 0; }
+}
+
+.sellScanText {
+  color: #059669;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 10px;
+  animation: sellPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes sellPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Grade result */
+.sellGradeResult {
+  background: #f0fdf4;
+  border: 1.5px solid #86efac;
+  border-radius: 12px;
+  padding: 16px 18px;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sellGradeResultHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.sellGradeResultTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Grade badge (inside result card) */
+.sellGradeBadge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* Condition score */
+.sellGradeScore {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sellGradeScoreLabel {
+  font-size: 12px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.sellGradeScoreBar {
+  flex: 1;
+  height: 6px;
+  background: #d1fae5;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.sellGradeScoreFill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.8s ease;
+}
+
+.sellGradeScoreNum {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+  white-space: nowrap;
+}
+
+/* Detected issues */
+.sellGradeIssues {
+  font-size: 12px;
+  color: #991b1b;
+  margin-bottom: 12px;
+}
+
+.sellGradeIssues b {
+  display: block;
+  margin-bottom: 4px;
+  color: #7f1d1d;
+}
+
+.sellGradeIssues ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Price box */
+.sellPriceBox {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border: 1px solid #d1fae5;
+}
+
+.sellPriceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.sellPriceLabel {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.sellPriceOrig {
+  font-size: 14px;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.sellPriceSuggested {
+  font-size: 20px;
+  font-weight: 800;
+  color: #059669;
+}
+
+.sellCreditsEarn {
+  font-size: 12px;
+  color: #059669;
+  font-weight: 600;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* List button */
+.sellListBtn {
+  width: 100%;
+  padding: 11px;
+  background: #131921;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.sellListBtn:hover:not(:disabled) {
+  background: #ff9900;
+  color: #131921;
+  transform: translateY(-1px);
+}
+
+.sellListBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Listed success */
+.sellListedMsg {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sellViewLink {
+  display: block;
+  margin-top: 8px;
+  color: #059669;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.sellViewLink:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media only screen and (max-width: 700px) {
+  .sellHeader {
+    padding: 24px 16px 20px;
+  }
+  .sellTitle {
+    font-size: 24px;
+  }
+  .sellContent {
+    padding: 0 12px;
+    margin-top: 20px;
+  }
+  .sellCard {
+    flex-direction: column;
+    padding: 16px;
+  }
+  .sellCardImg {
+    width: 100%;
+    height: 160px;
+  }
+  .sellFormRow {
+    flex-direction: column;
+  }
+}

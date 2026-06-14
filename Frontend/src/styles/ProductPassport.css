@@ -1,0 +1,834 @@
+/* ═══════════════════════════════════════════════
+   PRODUCT PASSPORT — pp- prefix  (light theme)
+═══════════════════════════════════════════════ */
+
+.pp-page {
+  min-height: 100vh;
+  background: #f0f2f5;
+  padding-bottom: 60px;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  color: #131921;
+}
+
+/* ── Loading / Error ── */
+.pp-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 16px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.pp-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #ff9900;
+  border-radius: 50%;
+  animation: pp-spin 0.8s linear infinite;
+}
+
+@keyframes pp-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Top Navigation Bar ── */
+.pp-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.pp-back-btn {
+  color: #ff9900;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.pp-back-btn:hover { opacity: 0.75; }
+
+.pp-topbar-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #9ca3af;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── Hero Passport Header ── */
+.pp-hero {
+  background: linear-gradient(135deg, #131921 0%, #232f3e 100%);
+  padding: 32px 40px;
+}
+
+.pp-hero-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.pp-hero-img-wrap {
+  width: 110px;
+  height: 110px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 2px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.pp-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+}
+
+.pp-hero-img-placeholder {
+  font-size: 40px;
+}
+
+.pp-hero-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.pp-hero-brand {
+  font-size: 11px;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.pp-hero-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+
+.pp-hero-price {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 12px;
+}
+
+.pp-verified-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pp-verified-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(22, 163, 74, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(22, 163, 74, 0.45);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.pp-grade-badge {
+  display: inline-block;
+  padding: 3px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+/* ── Passport ID / QR Block ── */
+.pp-passport-id-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.pp-qr-placeholder {
+  width: 72px;
+  height: 72px;
+  background: #ffffff;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.pp-qr-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+}
+
+.pp-qr-cell {
+  background: #131921;
+  border-radius: 1px;
+}
+
+.pp-passport-id {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  font-weight: 800;
+  color: #ff9900;
+  letter-spacing: 1px;
+}
+
+.pp-passport-id-label {
+  font-size: 10px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* ── Section Wrapper ── */
+.pp-section {
+  max-width: 1000px;
+  margin: 28px auto 0;
+  padding: 0 40px;
+}
+
+.pp-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pp-section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+/* ── Lifecycle Timeline ── */
+.pp-timeline {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 1.5px solid #e5e7eb;
+}
+
+.pp-tl-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.pp-tl-dot {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.pp-tl-step--done .pp-tl-dot {
+  background: #ff9900;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(255, 153, 0, 0.35);
+}
+
+.pp-tl-step--pending .pp-tl-dot {
+  background: #f3f4f6;
+  color: #9ca3af;
+  border: 2px solid #e5e7eb;
+}
+
+.pp-tl-check { font-size: 15px; }
+.pp-tl-num   { font-size: 13px; }
+
+.pp-tl-line {
+  position: absolute;
+  top: 19px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: #e5e7eb;
+  z-index: 0;
+}
+
+.pp-tl-line--done { background: #ff9900; }
+
+.pp-tl-body {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  text-align: center;
+  padding: 0 4px;
+}
+
+.pp-tl-icon  { font-size: 20px; }
+.pp-tl-label { font-size: 12px; font-weight: 700; color: #131921; }
+.pp-tl-sub   { font-size: 11px; color: #9ca3af; }
+
+/* ── 2-Column Grid ── */
+.pp-grid-2 {
+  max-width: 1000px;
+  margin: 24px auto 0;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ── Cards ── */
+.pp-card {
+  border-radius: 16px;
+  padding: 22px 24px;
+  border: 1.5px solid #e5e7eb;
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.pp-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.pp-card-icon { font-size: 18px; }
+
+.pp-card-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #131921;
+}
+
+.pp-card-empty {
+  color: #9ca3af;
+  font-size: 14px;
+  text-align: center;
+  padding: 24px 0;
+}
+
+/* ── Score Ring ── */
+.pp-score-ring-wrap {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+}
+
+.pp-score-ring-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.pp-score-num {
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.pp-score-sub {
+  font-size: 10px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+/* ── Certificate Content ── */
+.pp-cert-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.pp-cert-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pp-cert-grade-row,
+.pp-cert-disp-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.pp-cert-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pp-cert-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #131921;
+}
+
+.pp-cert-na {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.pp-disp-chip {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pp-reasoning {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  background: #fffbf0;
+  border-radius: 10px;
+  border-left: 3px solid #ff9900;
+}
+
+.pp-reasoning-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 6px;
+}
+
+.pp-reasoning-text {
+  margin: 0;
+  font-size: 12px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.pp-issues {
+  margin-bottom: 14px;
+}
+
+.pp-issues-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 6px;
+}
+
+.pp-issues-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pp-issues-list li {
+  font-size: 12px;
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.pp-cert-date {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 8px;
+}
+
+/* ── Environmental Impact ── */
+.pp-impact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.pp-impact-tile {
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.pp-impact-tile--green {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.pp-impact-tile--blue {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.pp-impact-tile--gold {
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+.pp-impact-val {
+  font-size: 22px;
+  font-weight: 900;
+  color: #131921;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.pp-impact-tile--green .pp-impact-val { color: #16a34a; }
+.pp-impact-tile--blue  .pp-impact-val { color: #2563eb; }
+.pp-impact-tile--gold  .pp-impact-val { color: #d97706; }
+
+.pp-impact-key {
+  font-size: 11px;
+  font-weight: 700;
+  color: #4b5563;
+  margin-bottom: 2px;
+}
+
+.pp-impact-sub {
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+/* ── Second Life Listing Strip ── */
+.pp-listing-strip {
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pp-listing-strip-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pp-listing-icon { font-size: 16px; }
+
+.pp-listing-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #131921;
+  flex: 1;
+}
+
+.pp-listing-status {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.pp-listing-status--live {
+  background: #dcfce7;
+  color: #16a34a;
+  border: 1px solid #86efac;
+}
+
+.pp-listing-status--sold {
+  background: #f1f5f9;
+  color: #6b7280;
+  border: 1px solid #cbd5e1;
+}
+
+.pp-listing-price {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.pp-listing-price b { color: #16a34a; }
+.pp-listing-grade   { color: #9ca3af; }
+
+.pp-listing-link {
+  font-size: 12px;
+  color: #16a34a;
+  text-decoration: none;
+  font-weight: 700;
+  align-self: flex-start;
+  transition: opacity 0.2s;
+}
+
+.pp-listing-link:hover { opacity: 0.75; }
+
+/* ── Chain of Custody ── */
+.pp-custody-chain {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  overflow-x: auto;
+}
+
+.pp-custody-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 120px;
+  padding: 18px 12px;
+  border-radius: 14px;
+  border: 1.5px solid #e5e7eb;
+  text-align: center;
+  background: #f8fafc;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.pp-custody-node--done {
+  background: #fffbf0;
+  border-color: #ff9900;
+  box-shadow: 0 0 0 3px rgba(255,153,0,0.1);
+}
+
+.pp-custody-node--pending {
+  background: #f8fafc;
+  border-color: #e5e7eb;
+  opacity: 0.6;
+}
+
+.pp-custody-icon { font-size: 28px; }
+
+.pp-custody-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #131921;
+}
+
+.pp-custody-sub {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.pp-custody-arrow {
+  font-size: 22px;
+  color: #d1d5db;
+  padding: 0 12px;
+  flex-shrink: 0;
+  transition: color 0.3s;
+}
+
+.pp-custody-arrow--done { color: #ff9900; }
+
+/* ── Footer Actions ── */
+.pp-footer {
+  max-width: 1000px;
+  margin: 32px auto 0;
+  padding: 0 40px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pp-footer-btn {
+  padding: 11px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.pp-footer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+}
+
+.pp-footer-btn--primary {
+  background: #ff9900;
+  color: #131921;
+}
+
+.pp-footer-btn--green {
+  background: #dcfce7;
+  color: #16a34a;
+  border: 1.5px solid #86efac;
+}
+
+.pp-footer-btn--ghost {
+  background: #f1f5f9;
+  color: #4b5563;
+  border: 1.5px solid #e5e7eb;
+}
+
+/* ── Return History Passport Button (in Returns.js) ── */
+.returnHistoryCardWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.rh-passport-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ff9900;
+  background: #fffbf0;
+  border: 1px solid #fde68a;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.rh-passport-btn:hover {
+  background: #fff7d6;
+}
+
+.rh-grade-chip {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.rh-grade--like-new { background: #dcfce7; color: #16a34a; border: 1px solid #86efac; }
+.rh-grade--good     { background: #dbeafe; color: #2563eb; border: 1px solid #93c5fd; }
+.rh-grade--fair     { background: #fef3c7; color: #d97706; border: 1px solid #fde68a; }
+.rh-grade--salvage  { background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; }
+
+/* ── Responsive ── */
+@media only screen and (max-width: 860px) {
+  .pp-topbar,
+  .pp-hero,
+  .pp-section,
+  .pp-grid-2,
+  .pp-footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .pp-hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pp-passport-id-block {
+    align-self: flex-start;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .pp-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .pp-timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .pp-tl-step {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    flex: none;
+    width: 100%;
+  }
+
+  .pp-tl-line { display: none; }
+
+  .pp-tl-body {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    margin-top: 0;
+  }
+
+  .pp-impact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pp-custody-chain {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pp-custody-arrow {
+    transform: rotate(90deg);
+    padding: 4px 0;
+  }
+
+  .pp-custody-node { width: 100%; }
+}

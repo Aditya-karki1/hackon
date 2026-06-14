@@ -1,0 +1,685 @@
+/* ── Second Life Dashboard ──────────────────────────────────── */
+.dashPage {
+  min-height: 100vh;
+  background: #f0f2f5;
+  padding-bottom: 60px;
+  font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+/* Header */
+.dashHeader {
+  background: linear-gradient(135deg, #131921 0%, #232f3e 100%);
+  color: #fff;
+  padding: 32px 48px 28px;
+}
+
+.dashHeaderContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashBackLink {
+  text-decoration: none;
+  color: #ff9900;
+  font-size: 14px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.dashBackLink:hover {
+  opacity: 0.8;
+}
+
+.dashTitle {
+  margin: 12px 0 6px;
+  font-size: 30px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.dashSubtitle {
+  margin: 0;
+  font-size: 15px;
+  color: #9ca3af;
+}
+
+/* Content */
+.dashContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Loading */
+.dashLoading {
+  text-align: center;
+  padding: 100px 20px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.dashSpinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #ff9900;
+  border-radius: 50%;
+  animation: dashSpin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes dashSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Stat Cards */
+.dashStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.dashStatCard {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dashStatIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.dashStatContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.dashStatValue {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.dashStatLabel {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.dashStatSub {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+/* Middle row */
+.dashMiddleRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+/* Sections */
+.dashSection {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+}
+
+.dashSectionFull {
+  grid-column: 1 / -1;
+}
+
+.dashSectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashSectionIcon {
+  font-size: 20px;
+}
+
+.dashSectionDesc {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0 0 20px;
+}
+
+/* Disposition bars */
+.dashDispoList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dashDispoRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashDispoLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.dashDispoDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dashDispoBarWrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashDispoBar {
+  flex: 1;
+  height: 8px;
+  background: #f3f4f6;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.dashDispoFill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 1s ease;
+}
+
+.dashDispoCount {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  min-width: 24px;
+  text-align: right;
+}
+
+.dashDispoPct {
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 38px;
+  text-align: right;
+}
+
+/* Compare cards */
+.dashCompareCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.dashCompareCard {
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: center;
+}
+
+.dashCompareCard--win {
+  background: #dcfce7;
+  border: 1.5px solid #86efac;
+}
+
+.dashCompareCard--loss {
+  background: #f3f4f6;
+  border: 1.5px solid #d1d5db;
+}
+
+.dashCompareCardLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.dashCompareCardValue {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.dashCompareCardSub {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.dashCompareGain {
+  text-align: center;
+}
+
+.dashCompareGainBadge {
+  background: #dcfce7;
+  color: #166534;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+/* Table */
+.dashTable {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.dashTableHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr 1fr;
+  background: #f9fafb;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dashTableRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr 1fr;
+  padding: 12px 16px;
+  align-items: center;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.15s;
+}
+
+.dashTableRow:last-child {
+  border-bottom: none;
+}
+
+.dashTableRow:hover {
+  background: #f9fafb;
+}
+
+.dashTableProduct {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashTableImg {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 3px;
+  flex-shrink: 0;
+}
+
+.dashTableName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.dashTablePrice {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.dashGradeBadge {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dashDispoBadge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.dashTableRecovery {
+  font-size: 13px;
+  font-weight: 700;
+  color: #059669;
+}
+
+.dashTableCo2 {
+  font-size: 12px;
+  color: #059669;
+}
+
+.dashTableDate {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.dashEmpty {
+  text-align: center;
+  padding: 32px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+/* Header row + live badge */
+.dashHeaderRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.dashLiveBadge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #d1fae5;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  margin-top: 14px;
+}
+
+.dashLiveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  animation: dashPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes dashPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+/* Donut layout */
+.dashDonutLayout {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Sparkline */
+.dashSparkline {
+  display: block;
+  overflow: visible;
+  margin-top: 8px;
+}
+
+/* Row 3: 3-column */
+.dashThirdRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.dashSectionSmall {
+  /* inherits dashSection base */
+}
+
+/* Grade distribution */
+.dashGradeList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.dashGradeRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashGradeLabel {
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 72px;
+  flex-shrink: 0;
+}
+
+.dashGradeBarWrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashGradeTrack {
+  flex: 1;
+  height: 7px;
+  background: #f3f4f6;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.dashGradeFill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 1s ease;
+}
+
+.dashGradeCount {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+  min-width: 20px;
+  text-align: right;
+}
+
+/* Top brands */
+.dashBrandList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.dashBrandRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f9fafb;
+  border-radius: 10px;
+  border: 1px solid #f3f4f6;
+}
+
+.dashBrandRank {
+  font-size: 11px;
+  font-weight: 800;
+  color: #9ca3af;
+  min-width: 22px;
+}
+
+.dashBrandName {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+  flex: 1;
+}
+
+.dashBrandCount {
+  font-size: 11px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.dashBrandCo2 {
+  font-size: 11px;
+  color: #059669;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ROI note inside Recovery section */
+.dashRoiNote {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.dashRoiLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #374151;
+}
+
+.dashRoiIcon { font-size: 16px; flex-shrink: 0; }
+
+/* ESG Summary bar */
+.dashEsgBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+  border-radius: 16px;
+  padding: 22px 32px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dashEsgItem {
+  text-align: center;
+}
+
+.dashEsgVal {
+  font-size: 18px;
+  font-weight: 800;
+  color: #6ee7b7;
+  margin-bottom: 4px;
+}
+
+.dashEsgKey {
+  font-size: 11px;
+  color: #a7f3d0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.dashEsgDivider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,0.15);
+}
+
+/* Responsive */
+@media only screen and (max-width: 1024px) {
+  .dashStatsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dashMiddleRow {
+    grid-template-columns: 1fr;
+  }
+  .dashThirdRow {
+    grid-template-columns: 1fr;
+  }
+  .dashEsgDivider {
+    display: none;
+  }
+  .dashEsgBar {
+    gap: 20px;
+  }
+  .dashTableHeader,
+  .dashTableRow {
+    grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr;
+  }
+  .dashTableRow > *:last-child,
+  .dashTableHeader > *:last-child {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .dashHeader {
+    padding: 24px 16px 20px;
+  }
+  .dashTitle {
+    font-size: 22px;
+  }
+  .dashContent {
+    padding: 16px 12px;
+  }
+  .dashStatsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .dashStatValue {
+    font-size: 18px;
+  }
+  .dashTableHeader,
+  .dashTableRow {
+    grid-template-columns: 2fr 1fr 1.5fr 1fr;
+  }
+  .dashTableRow > *:nth-child(5),
+  .dashTableHeader > *:nth-child(5) {
+    display: none;
+  }
+  .dashCompareCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashTableRow--link {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.dashTableRow--link:hover {
+  background: #f0fdf4;
+}

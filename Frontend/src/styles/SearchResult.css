@@ -1,0 +1,48 @@
+.searchResultContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+  flex-wrap: wrap;
+  padding: 30px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 28px;
+}
+
+/* Constrain inline-styled product images inside search results */
+.searchResultContainer .productDetailLeft img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 900px) {
+  .searchResultContainer {
+    padding: 6px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .searchResultContainer .productDetailLeft img {
+    width: 100% !important;
+    max-width: 300px;
+  }
+
+  .searchResultContainer .productDetailRight {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .searchResultContainer {
+    padding: 12px 8px 16px;
+    margin-bottom: 20px;
+  }
+
+  .searchResultContainer .productDetailLeft img {
+    max-width: 220px;
+  }
+}

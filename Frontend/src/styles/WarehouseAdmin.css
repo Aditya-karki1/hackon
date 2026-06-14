@@ -1,0 +1,446 @@
+/* ── Warehouse Admin Portal ──────────────────────────────────── */
+.whPage {
+  min-height: 100vh;
+  background: #f0f2f5;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  padding-bottom: 60px;
+}
+
+/* Header */
+.whHeader {
+  background: linear-gradient(135deg, #131921 0%, #232f3e 100%);
+  color: #fff;
+  padding: 28px 48px 32px;
+}
+.whHeaderContent { max-width: 1280px; margin: 0 auto; }
+
+.whHeaderTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.whHeaderLogo { font-size: 14px; font-weight: 700; color: #ff9900; letter-spacing: 0.3px; }
+
+.whHeaderBadge {
+  display: flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #d1fae5; padding: 4px 12px; border-radius: 20px;
+  font-size: 11px; font-weight: 700;
+}
+.whLiveDot {
+  width: 7px; height: 7px; border-radius: 50%; background: #34d399;
+  animation: whPulse 1.4s ease-in-out infinite;
+}
+@keyframes whPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+
+.whTitle   { font-size: 26px; font-weight: 800; color: #fff; margin: 0 0 4px; }
+.whSubtitle{ font-size: 13px; color: #9ca3af; margin: 0 0 20px; }
+
+/* Stat pills */
+.whStatPills { display: flex; gap: 12px; flex-wrap: wrap; }
+.whStatPill {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 12px; padding: 10px 20px; min-width: 100px; text-align: center;
+}
+.whStatPill--orange { border-color:rgba(249,115,22,.4); background:rgba(249,115,22,.1); }
+.whStatPill--green  { border-color:rgba(5,150,105,.4);  background:rgba(5,150,105,.1); }
+.whStatPill--blue   { border-color:rgba(37,99,235,.4);  background:rgba(37,99,235,.1); }
+.whStatPill--eco    { border-color:rgba(110,231,183,.4); background:rgba(6,78,59,.3); }
+.whStatPill--eco .whStatPillVal { color: #6ee7b7; }
+.whStatPill--eco .whStatPillKey { color: #a7f3d0; }
+.whStatPillVal  { display:block; font-size:22px; font-weight:800; color:#fff; line-height:1.1; }
+.whStatPillKey  { display:block; font-size:11px; color:#9ca3af; font-weight:600; margin-top:3px; }
+
+/* Driver roster */
+.whDriverRoster {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+.whDriverRosterInner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 12px 24px;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.whDriverRosterLabel {
+  font-size: 12px; font-weight: 700; color: #6b7280;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  white-space: nowrap; margin-right: 4px;
+}
+.whDriverChip {
+  display: flex; align-items: center; gap: 6px;
+  background: #f9fafb; border: 1px solid #e5e7eb;
+  border-radius: 20px; padding: 5px 12px;
+}
+.whDriverChipAvatar {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: #131921; color: #ff9900;
+  font-size: 11px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+.whDriverChipName    { font-size: 12px; font-weight: 700; color: #111827; }
+.whDriverChipVehicle { font-size: 11px; color: #9ca3af; }
+
+/* Filter bar */
+.whFilterBar { background: #fff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 20; }
+.whFilterBarInner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 10px 24px; display: flex; gap: 8px; flex-wrap: wrap;
+}
+.whFilterTab {
+  padding: 7px 18px; border: 1.5px solid #e5e7eb; border-radius: 20px;
+  background: #fff; font-size: 13px; font-weight: 600; color: #374151;
+  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.whFilterTab:hover { border-color: #ff9900; color: #d97706; }
+.whFilterTab--active { background: #ff9900; color: #131921; border-color: #ff9900; }
+
+/* Content */
+.whContent { max-width: 1280px; margin: 24px auto 0; padding: 0 24px; }
+.whLoading  { text-align:center; padding:80px 20px; color:#6b7280; }
+.whSpinner  {
+  width:36px; height:36px; border:3px solid #e5e7eb; border-top-color:#ff9900;
+  border-radius:50%; animation:whSpin .8s linear infinite; margin:0 auto 16px;
+}
+@keyframes whSpin { to{transform:rotate(360deg)} }
+.whEmpty    { text-align:center; padding:80px 20px; color:#6b7280; }
+.whEmptyIcon{ font-size:56px; margin-bottom:12px; }
+
+/* Table */
+.whTable {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,.07);
+  overflow: hidden;
+}
+
+.whTableHead {
+  display: grid;
+  grid-template-columns: 2.5fr 1.2fr 0.8fr 1.2fr 2fr;
+  background: #f9fafb;
+  padding: 12px 20px;
+  font-size: 11px; font-weight: 700; color: #6b7280;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.whTableRow {
+  display: grid;
+  grid-template-columns: 2.5fr 1.2fr 0.8fr 1.2fr 2fr;
+  padding: 14px 20px;
+  align-items: center;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background .15s;
+}
+.whTableRow:last-child { border-bottom: none; }
+.whTableRow:hover      { background: #fafafa; }
+.whTableRow--assigned  { background: #f0fdf4; }
+.whTableRow--assigned:hover { background: #dcfce7; }
+
+/* Item cell */
+.whTableItem { display:flex; align-items:center; gap:12px; }
+.whTableImg  {
+  width:52px; height:52px; object-fit:contain;
+  background:#f9fafb; border:1px solid #e5e7eb;
+  border-radius:8px; padding:4px; flex-shrink:0;
+}
+.whTableName   { font-size:14px; font-weight:700; color:#111827; }
+.whTableBrand  { font-size:11px; color:#9ca3af; font-weight:600; text-transform:uppercase; letter-spacing:.4px; }
+.whTablePrice  { font-size:12px; color:#6b7280; }
+
+/* Warehouse cell */
+.whTableWarehouse    { }
+.whTableWarehouseName{ font-size:13px; font-weight:700; color:#111827; }
+.whTableWarehouseId  {
+  display:inline-block; margin-top:3px;
+  background:#131921; color:#ff9900;
+  padding:1px 8px; border-radius:20px; font-size:10px; font-weight:800;
+}
+
+/* Days badge */
+.whDaysBadge {
+  display:inline-block; padding:4px 12px; border-radius:20px;
+  background:#f3f4f6; color:#374151;
+  font-size:12px; font-weight:700;
+}
+.whDaysBadge--urgent { background:#fee2e2; color:#dc2626; }
+
+/* Status badge */
+.whStatusBadge {
+  display:inline-block; padding:4px 12px; border-radius:20px;
+  font-size:11px; font-weight:700;
+}
+
+/* Assign column */
+.whTableAssign { }
+
+.whAssignRow { display:flex; gap:8px; align-items:center; }
+
+.whDriverSelect {
+  flex:1; padding:8px 10px;
+  border:1.5px solid #e5e7eb; border-radius:8px;
+  font-size:13px; outline:none;
+  transition:border-color .2s;
+}
+.whDriverSelect:focus { border-color:#ff9900; }
+
+.whAssignBtn {
+  padding:8px 18px;
+  background:#ff9900; color:#131921;
+  border:none; border-radius:8px;
+  font-size:13px; font-weight:800;
+  cursor:pointer; transition:background .2s; white-space:nowrap;
+}
+.whAssignBtn:hover:not(:disabled) { background:#e68900; }
+.whAssignBtn:disabled { opacity:.5; cursor:not-allowed; }
+
+/* Assigned info */
+.whAssignedInfo { display:flex; align-items:center; gap:10px; }
+.whAssignedAvatar {
+  width:36px; height:36px; border-radius:50%;
+  background:#059669; color:#fff;
+  font-size:15px; font-weight:800;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.whAssignedName    { font-size:13px; font-weight:700; color:#111827; }
+.whAssignedPhone   { font-size:11px; color:#6b7280; }
+.whAssignedVehicle { font-size:11px; color:#9ca3af; }
+
+/* ── Radar Map Section ────────────────────────────────────────── */
+.whMapSection {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 24px 0;
+}
+
+.whMapSectionInner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.whMapHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.whMapTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: #131921;
+  margin: 0 0 4px;
+}
+
+.whMapSubtitle {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.whWarehouseSelector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.whWarehouseSelectorLabel {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.whWarehouseSelect {
+  padding: 8px 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: inherit;
+  color: #131921;
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.whWarehouseSelect:focus { border-color: #ff9900; }
+
+.whMapLayout {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.whMapContainer {
+  height: 420px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+
+/* Leaflet popup custom styles */
+.whMapPopup {
+  min-width: 160px;
+}
+
+.whMapPopupImg {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 6px;
+}
+
+.whMapPopupTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #131921;
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.whMapPopupSub {
+  font-size: 11px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.whMapPopupRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.whMapPopupDriver {
+  font-size: 11px;
+  color: #059669;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* Legend panel */
+.whMapLegend {
+  background: #f8fafc;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.whMapLegendTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 12px;
+}
+
+.whMapLegendRadius {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #d97706;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.whMapLegendRadiusDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2.5px dashed #ff9900;
+  background: rgba(255,153,0,0.1);
+  flex-shrink: 0;
+}
+
+.whMapLegendRow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.whMapLegendRow:last-of-type { border-bottom: none; }
+
+.whMapLegendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  flex-shrink: 0;
+}
+
+.whMapLegendLabel {
+  flex: 1;
+  font-size: 12px;
+  color: #374151;
+  font-weight: 600;
+}
+
+.whMapLegendCount {
+  font-size: 13px;
+  font-weight: 800;
+  color: #131921;
+  min-width: 24px;
+  text-align: right;
+}
+
+.whMapLegendDivider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 8px 0;
+}
+
+.whMapLegendEmpty {
+  font-size: 12px;
+  color: #9ca3af;
+  font-style: italic;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.whMapLegendHint {
+  font-size: 11px;
+  color: #9ca3af;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* Responsive */
+@media only screen and (max-width: 900px) {
+  .whHeader { padding: 20px 16px 24px; }
+  .whTitle  { font-size: 20px; }
+  .whContent{ padding: 0 12px; }
+  .whTableHead { display: none; }
+  .whTableRow  {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 8px rgba(0,0,0,.07);
+  }
+  .whMapSectionInner { padding: 0 12px; }
+  .whMapLayout { grid-template-columns: 1fr; }
+  .whMapContainer { height: 300px; }
+  .whMapLegend { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+  .whMapLegendTitle { width: 100%; }
+}

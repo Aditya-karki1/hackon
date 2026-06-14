@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --check app.js)",
+      "Bash(cd *)",
+      "Bash(node -e ' *)",
+      "Bash(timeout 5 node app.js)",
+      "Bash(node app.js)",
+      "Bash(pkill -f \"node app.js\")",
+      "Bash(npx react-scripts *)",
+      "Bash(node seedSecondLife.js)",
+      "Bash(node *)",
+      "Bash(xargs kill -9)",
+      "Bash(echo \"Backend PID: $!\")",
+      "Bash(BROWSER=none npm start)",
+      "Bash(echo \"Frontend PID: $!\")",
+      "Bash(curl -s http://localhost:5001/api/second-life)",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s http://localhost:5001/api/second-life/dashboard)",
+      "Bash(curl *)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(f\\\\\"  {d['name']}: {d['greenCredits']} pts\\\\\"\\)\")",
+      "Bash(lsof -ti:5001)",
+      "Bash(lsof -ti:3000)",
+      "Skill(run)",
+      "Bash(tmux new-session *)",
+      "Bash(tmux kill-session *)",
+      "Bash(tmux new-window *)",
+      "Bash(gh auth *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git rm *)"
+    ]
+  }
+}
