@@ -34,6 +34,10 @@ function App() {
     }, 1500);
   }, []);
 
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/api/products`).catch(() => {});
+  }, []);
+
   if (isLoading) {
     return (
       <div className="loader">
