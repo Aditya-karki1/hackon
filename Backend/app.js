@@ -134,7 +134,28 @@ function haversineKm(lat1, lng1, lat2, lng2) {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-// Seed warehouse admin account on startup
+const SEED_PRODUCTS = [
+  // Shoes
+  { brand: "Nike", name: "Air Max 270", price: 8999, type: "Shoes", description: "Lightweight running shoes with Air Max cushioning.", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" },
+  { brand: "Adidas", name: "Ultraboost 22", price: 11999, type: "Shoes", description: "Responsive running shoes with Boost midsole.", image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400" },
+  { brand: "Puma", name: "RS-X Sneakers", price: 6499, type: "Shoes", description: "Retro-inspired chunky sneakers with bold design.", image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" },
+  { brand: "Reebok", name: "Classic Leather", price: 5299, type: "Shoes", description: "Timeless leather sneakers with cushioned sole.", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" },
+  { brand: "New Balance", name: "574 Core", price: 7499, type: "Shoes", description: "Iconic silhouette with premium suede and mesh.", image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=400" },
+  // Bags
+  { brand: "Wildcraft", name: "Trailblazer 45L Backpack", price: 2999, type: "Bags", description: "Durable trekking backpack with rain cover.", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400" },
+  { brand: "American Tourister", name: "City Drift Backpack", price: 1899, type: "Bags", description: "Laptop backpack with USB charging port.", image: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=400" },
+  { brand: "Skybags", name: "Sparx Backpack", price: 1299, type: "Bags", description: "Spacious casual backpack with multiple pockets.", image: "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=400" },
+  { brand: "Tommy Hilfiger", name: "Essential Tote", price: 3499, type: "Bags", description: "Stylish canvas tote with leather handles.", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400" },
+  // All / Electronics
+  { brand: "boAt", name: "Airdopes 141 TWS", price: 1299, type: "All", description: "True wireless earbuds with 42H total playback.", image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400" },
+  { brand: "Samsung", name: "Galaxy Tab A8", price: 18999, type: "All", description: "10.5-inch Android tablet for work and entertainment.", image: "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=400" },
+  { brand: "Apple", name: "AirPods Pro (2nd Gen)", price: 24900, type: "All", description: "Active noise cancellation with Adaptive Transparency.", image: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400" },
+  { brand: "Sony", name: "WH-1000XM5 Headphones", price: 29990, type: "All", description: "Industry-leading noise cancelling over-ear headphones.", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" },
+  { brand: "Logitech", name: "MX Master 3S Mouse", price: 8995, type: "All", description: "Advanced wireless mouse with ultra-fast scrolling.", image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400" },
+  { brand: "JBL", name: "Flip 6 Bluetooth Speaker", price: 9999, type: "All", description: "Portable waterproof speaker with bold JBL sound.", image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400" },
+];
+
+// Seed warehouse admin account and products on startup
 mongoose.connection.once("open", async () => {
   try {
     const exists = await User.findOne({ email: "warehouse@amazon.com" });
@@ -144,6 +165,14 @@ mongoose.connection.once("open", async () => {
       console.log("Warehouse admin seeded: warehouse@amazon.com / warehouse123");
     }
   } catch (e) { /* already exists */ }
+
+  try {
+    const productCount = await Product.countDocuments();
+    if (productCount === 0) {
+      await Product.insertMany(SEED_PRODUCTS);
+      console.log(`Seeded ${SEED_PRODUCTS.length} products`);
+    }
+  } catch (e) { console.error("Product seed error:", e); }
 });
 
 // Routes
