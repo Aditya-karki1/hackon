@@ -173,6 +173,101 @@ mongoose.connection.once("open", async () => {
       console.log(`Seeded ${SEED_PRODUCTS.length} products`);
     }
   } catch (e) { console.error("Product seed error:", e); }
+
+  try {
+    const listingCount = await SecondLifeListing.countDocuments();
+    if (listingCount === 0) {
+      const SEED_LISTINGS = [
+        {
+          productName: "Nike Air Max 270",
+          productBrand: "Nike",
+          productImage: "https://images-na.ssl-images-amazon.com/images/I/71kpYNT5raL._UL1500_.jpg",
+          productCategory: "Shoes",
+          originalPrice: 12999,
+          suggestedPrice: 7149,
+          aiGrade: "Like New",
+          conditionScore: 92,
+          disposition: "RESELL_LOCAL",
+          carbonSaved: 4.2,
+          sellerLocation: "Mumbai",
+          buyerDistance: 12,
+          isP2P: false,
+          sellerName: "Amazon Warehouse",
+          isAvailable: true,
+        },
+        {
+          productName: "Wildcraft Backpack 45L",
+          productBrand: "Wildcraft",
+          productImage: "https://images-na.ssl-images-amazon.com/images/I/71Q5GhqNqeL._UL1500_.jpg",
+          productCategory: "Backpacks",
+          originalPrice: 3499,
+          suggestedPrice: 1749,
+          aiGrade: "Good",
+          conditionScore: 74,
+          disposition: "RESELL_LOCAL",
+          carbonSaved: 2.1,
+          sellerLocation: "Delhi",
+          buyerDistance: 8,
+          isP2P: false,
+          sellerName: "Amazon Warehouse",
+          isAvailable: true,
+        },
+        {
+          productName: "boAt Rockerz 450 Headphones",
+          productBrand: "boAt",
+          productImage: "https://images-na.ssl-images-amazon.com/images/I/61JcnRB3lmL._UL1500_.jpg",
+          productCategory: "Electronics",
+          originalPrice: 1999,
+          suggestedPrice: 999,
+          aiGrade: "Good",
+          conditionScore: 78,
+          disposition: "RESELL_LOCAL",
+          carbonSaved: 1.5,
+          sellerLocation: "Bangalore",
+          buyerDistance: 5,
+          isP2P: true,
+          sellerName: "Rahul M.",
+          isAvailable: true,
+        },
+        {
+          productName: "Puma Men's Running Shoes",
+          productBrand: "Puma",
+          productImage: "https://images-na.ssl-images-amazon.com/images/I/71vFKBpKakL._UL1500_.jpg",
+          productCategory: "Shoes",
+          originalPrice: 4999,
+          suggestedPrice: 2249,
+          aiGrade: "Fair",
+          conditionScore: 58,
+          disposition: "RESELL_LOCAL",
+          carbonSaved: 3.0,
+          sellerLocation: "Hyderabad",
+          buyerDistance: 20,
+          isP2P: true,
+          sellerName: "Sneha R.",
+          isAvailable: true,
+        },
+        {
+          productName: "Skybags Campus Backpack",
+          productBrand: "Skybags",
+          productImage: "https://images-na.ssl-images-amazon.com/images/I/81gEMpXVYJL._UL1500_.jpg",
+          productCategory: "Backpacks",
+          originalPrice: 2299,
+          suggestedPrice: 1264,
+          aiGrade: "Like New",
+          conditionScore: 88,
+          disposition: "RESELL_LOCAL",
+          carbonSaved: 1.8,
+          sellerLocation: "Pune",
+          buyerDistance: 3,
+          isP2P: false,
+          sellerName: "Amazon Warehouse",
+          isAvailable: true,
+        },
+      ];
+      await SecondLifeListing.insertMany(SEED_LISTINGS);
+      console.log(`Seeded ${SEED_LISTINGS.length} Second Life listings`);
+    }
+  } catch (e) { console.error("Second Life listing seed error:", e); }
 });
 
 // Routes
