@@ -20,7 +20,7 @@ function Navbar() {
   const userName = localStorage.getItem("userName");
   const userRole = localStorage.getItem("userRole");
   const { pathname } = useLocation();
-  const isWarehouse = userRole === "warehouse";
+  const isWarehouse = !!token && userRole === "warehouse";
   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   // Fetch green credits from API

@@ -105,8 +105,17 @@
   border-radius:50%; animation:whSpin .8s linear infinite; margin:0 auto 16px;
 }
 @keyframes whSpin { to{transform:rotate(360deg)} }
-.whEmpty    { text-align:center; padding:80px 20px; color:#6b7280; }
+.whEmpty    { text-align:center; padding:60px 20px 80px; color:#6b7280; }
 .whEmptyIcon{ font-size:56px; margin-bottom:12px; }
+.whEmptyDrivers { margin-top:32px; text-align:left; max-width:700px; margin-left:auto; margin-right:auto; }
+.whEmptyDriversTitle { font-size:15px; font-weight:700; color:#374151; margin-bottom:16px; text-align:center; }
+.whEmptyDriverGrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; }
+.whEmptyDriverCard { display:flex; align-items:center; gap:12px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; padding:12px 14px; }
+.whEmptyDriverAvatar { width:40px; height:40px; border-radius:50%; background:#1a1a2e; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:16px; flex-shrink:0; }
+.whEmptyDriverInfo { display:flex; flex-direction:column; gap:2px; }
+.whEmptyDriverName { font-size:14px; font-weight:600; color:#111827; }
+.whEmptyDriverVehicle { font-size:12px; color:#6b7280; }
+.whEmptyDriverPhone { font-size:12px; color:#059669; }
 
 /* Table */
 .whTable {

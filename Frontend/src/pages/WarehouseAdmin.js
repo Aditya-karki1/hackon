@@ -425,7 +425,27 @@ const WarehouseAdmin = () => {
         {loading ? (
           <div className="whLoading"><div className="whSpinner" /><p>Loading returns…</p></div>
         ) : filtered.length === 0 ? (
-          <div className="whEmpty"><div className="whEmptyIcon">📦</div><p>No returns found.</p></div>
+          <div className="whEmpty">
+            <div className="whEmptyIcon">📦</div>
+            <p>No returns found.</p>
+            {drivers.length > 0 && (
+              <div className="whEmptyDrivers">
+                <p className="whEmptyDriversTitle">🚴 Available Drivers — Ready for Dispatch</p>
+                <div className="whEmptyDriverGrid">
+                  {drivers.map((d) => (
+                    <div key={d.driverId} className="whEmptyDriverCard">
+                      <div className="whEmptyDriverAvatar">{d.name[0]}</div>
+                      <div className="whEmptyDriverInfo">
+                        <span className="whEmptyDriverName">{d.name}</span>
+                        <span className="whEmptyDriverVehicle">{d.vehicle}</span>
+                        <span className="whEmptyDriverPhone">📞 {d.phone}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         ) : (
           <div className="whTable">
             <div className="whTableHead">

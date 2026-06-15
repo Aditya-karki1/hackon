@@ -175,8 +175,8 @@ mongoose.connection.once("open", async () => {
   } catch (e) { console.error("Product seed error:", e); }
 
   try {
-    const listingCount = await SecondLifeListing.countDocuments();
-    if (listingCount === 0) {
+    const availableCount = await SecondLifeListing.countDocuments({ isAvailable: true });
+    if (availableCount < 5) {
       const SEED_LISTINGS = [
         {
           productName: "Nike Air Max 270",
