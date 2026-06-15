@@ -1,0 +1,36 @@
+name: Keep Render Site Alive
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Backend (prevents Render sleep)
+        run: |
+          echo "Pinging backend at $(date)"
+          STATUS=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 https://hackon-2gsl.onrender.com/api/products)
+          echo "HTTP status: $STATUS"
+          if [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 400 ]; then
+            echo "Backend is alive!"
+          else
+            echo "Unexpected status: $STATUS — backend may be cold-starting, not failing build"
+          fi
+
+      - name: Ping Frontend (static site, sanity check only)
+        run: |
+          echo "Pinging frontend at $(date)"
+          STATUS=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 https://hackon-frontend.onrender.com/)
+          echo "HTTP status: $STATUS"
+          if [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 400 ]; then
+            echo "Frontend is alive!"
+          else
+            echo "Frontend returned: $STATUS"
+          fi
